@@ -1,42 +1,110 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* App.css */
+
+/* Import professional fonts - Playfair Display for English headings, Noto Sans SC for Chinese */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap');
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    'Noto Sans SC', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Apply serif font to English headings, use Noto Sans SC for better Chinese rendering */
+h1, h2, h3, h4, h5, h6, .font-serif {
+  font-family: 'Playfair Display', 'Noto Sans SC', serif;
 }
 
-@keyframes logo-spin {
+/* Improve Chinese character rendering */
+:lang(zh), :lang(zh-CN), :lang(zh-Hans) {
+  font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+/* Better spacing for Chinese text */
+p:lang(zh), div:lang(zh), span:lang(zh) {
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+}
+
+/* Larger font sizes for Chinese characters for better readability */
+.text-xl:lang(zh) {
+  font-size: 1.35rem;
+}
+
+.text-lg:lang(zh) {
+  font-size: 1.2rem;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #16a34a;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #15803d;
+}
+
+/* Input autofill styling */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: #111827;
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Smooth transitions for all interactive elements */
+button, a, input, textarea {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Ensure images load smoothly */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* WeChat QR Code hover effect */
+.wechat-qr {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.wechat-qr:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+/* Fade in animation */
+@keyframes fade-in {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(10px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
 }
