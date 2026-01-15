@@ -2,17 +2,23 @@
 import React from 'react';
 import { Mail, Linkedin } from 'lucide-react';
 import { translations } from '../translations';
+import feldmanImg from '../assets/team/michael-feldman.jpg';
+import sandnessImg from '../assets/team/todd-sandness.png';
+import zhouImg from '../assets/team/xuelong-zhou.png';
+import zhangImg from '../assets/team/sarah-zhang.png';
+import weiImg from '../assets/team/roger-wei.png';
+import liangImg from '../assets/team/jennifer-liang.jpg';
 
 export default function Team({ language }) {
   const t = translations[language];
 
   const members = [
-    t.team.feldman,
-    t.team.sandness,
-    t.team.zhou,
-    t.team.zhang,
-    t.team.wei,
-    t.team.liang
+    { ...t.team.feldman, image: feldmanImg }, 
+    { ...t.team.sandness, image: sandnessImg }, 
+    { ...t.team.zhou, image: zhouImg },
+    { ...t.team.zhang, image: zhangImg },
+    { ...t.team.wei, image: weiImg },
+    { ...t.team.liang, image: liangImg }
   ];
 
   return (
@@ -41,11 +47,23 @@ export default function Team({ language }) {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
             {members.map((member, idx) => (
               <div key={idx} className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md hover:border-green-700 transition-all">
-                <div className="aspect-square bg-gradient-to-br from-green-100 to-blue-100 flex items-center justify-center">
-                  <div className="text-6xl font-serif font-bold text-green-700 opacity-30">
-                    {member.name.split(' ').map(n => n[0]).join('')}
+                {/* Team Member Photo */}
+                {member.image ? (
+                  <div className="aspect-square overflow-hidden">
+                    <img 
+                      src={member.image} 
+                      alt={member.name}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                </div>
+                ) : (
+                  <div className="aspect-square bg-gradient-to-br from-green-100 to-blue-100 flex items-center justify-center">
+                    <div className="text-6xl font-serif font-bold text-green-700 opacity-30">
+                      {member.name.split(' ').map(n => n[0]).join('')}
+                    </div>
+                  </div>
+                )}
+                
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-gray-900 mb-2">{member.name}</h3>
                   <p className="text-green-700 font-medium mb-4 text-sm">{member.title}</p>

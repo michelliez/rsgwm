@@ -4,7 +4,7 @@ export const translations = {
     nav: {
       home: 'Home',
       overview: 'Overview',
-      asset: 'Asset Mgmt',
+      asset: 'Asset Management',
       team: 'Team',
       office: 'Offices',
       about: 'About Us',

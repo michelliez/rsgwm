@@ -13,6 +13,16 @@ export default function MarketInsights({ language }) {
   });
 
   const [lastUpdated, setLastUpdated] = useState(new Date());
+  const [isRefreshing, setIsRefreshing] = useState(false);
+
+  const handleRefresh = () => {
+    setIsRefreshing(true);
+    // Simulate data refresh
+    setTimeout(() => {
+      setLastUpdated(new Date());
+      setIsRefreshing(false);
+    }, 1000);
+  };
 
   const newsItems = [
     {
@@ -56,10 +66,14 @@ export default function MarketInsights({ language }) {
               </p>
             </div>
             <div className="text-right">
-              <div className="flex items-center gap-2 text-sm text-gray-400 mb-2">
-                <RefreshCw className="w-4 h-4" />
+              <button 
+                onClick={handleRefresh}
+                disabled={isRefreshing}
+                className="flex items-center gap-2 text-sm text-gray-400 mb-2 hover:text-white transition-colors disabled:opacity-50"
+              >
+                <RefreshCw className={`w-4 h-4 ${isRefreshing ? 'animate-spin' : ''}`} />
                 {language === 'en' ? 'Last Updated' : '最后更新'}
-              </div>
+              </button>
               <div className="text-white font-medium">
                 {lastUpdated.toLocaleTimeString()}
               </div>
