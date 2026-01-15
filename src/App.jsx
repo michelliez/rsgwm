@@ -9,6 +9,7 @@ import AssetManagement from './pages/AssetManagement';
 import Team from './pages/Team';
 import Office from './pages/Office';
 import Contact from './pages/Contact';
+import MarketInsights from './pages/MarketInsights';
 import { translations } from './translations';
 import './App.css';
 
@@ -41,6 +42,7 @@ function Navigation({ language, setLanguage }) {
     { path: '/asset-management', label: t.nav.asset },
     { path: '/team', label: t.nav.team },
     { path: '/office', label: t.nav.office },
+    { path: '/market-insights', label: t.nav.market },
     { path: '/contact', label: t.nav.contact }
   ];
 
@@ -136,17 +138,33 @@ function Footer({ language }) {
           </div>
           <div>
             <h4 className="font-semibold mb-4 text-gray-900">{t.contact.office}</h4>
-            <p className="text-gray-600 text-sm">{t.contact.address}</p>
-            <p className="text-gray-600 text-sm">{t.contact.city}</p>
+            <div className="space-y-3 text-sm">
+              <div>
+                <p className="font-medium text-gray-900">{t.contact.ny1}</p>
+                <p className="text-gray-600">{t.contact.ny1address}</p>
+                <p className="text-gray-600">{t.contact.ny1city}</p>
+              </div>
+              <div>
+                <p className="font-medium text-gray-900">{t.contact.nj}</p>
+                <p className="text-gray-600">{t.contact.njaddress}</p>
+                <p className="text-gray-600">{t.contact.njcity}</p>
+              </div>
+            </div>
           </div>
           <div>
             <h4 className="font-semibold mb-4 text-gray-900">{t.nav.contact}</h4>
-            <p className="text-gray-600 text-sm mb-2">+1 (212) 555-0100</p>
-            <p className="text-gray-600 text-sm mb-4">info@rockystreamglobal.com</p>
+            <div className="space-y-2 text-sm">
+              <div>
+                <p className="text-gray-600">NY: {t.contact.nyphone}</p>
+                <p className="text-gray-600">NJ: {t.contact.njphone}</p>
+              </div>
+              <p className="text-gray-600">{t.contact.emailaddr}</p>
+              <p className="text-gray-600">{t.contact.website}</p>
+            </div>
             <div className="mt-4">
-              <p className="text-xs font-semibold text-gray-900 mb-2">{language === 'en' ? 'Scan to Connect on WeChat' : '扫码添加微信'}</p>
-              <div className="w-24 h-24 bg-white border-2 border-gray-200 rounded flex items-center justify-center">
-                <img src="https://cdn.cdnlogo.com/logos/w/79/wechat.svg" alt="WeChat QR" className="w-12 h-12" />
+              <p className="text-xs font-semibold text-gray-900 mb-2">{language === 'en' ? 'Connect on WeChat' : '微信联系'}</p>
+              <div className="w-20 h-20 bg-white border-2 border-gray-200 rounded flex items-center justify-center">
+                <img src="https://cdn.cdnlogo.com/logos/w/79/wechat.svg" alt="WeChat QR" className="w-10 h-10" />
               </div>
             </div>
           </div>
@@ -175,6 +193,7 @@ export default function App() {
             <Route path="/asset-management" element={<AssetManagement language={language} />} />
             <Route path="/team" element={<Team language={language} />} />
             <Route path="/office" element={<Office language={language} />} />
+            <Route path="/market-insights" element={<MarketInsights language={language} />} />
             <Route path="/contact" element={<Contact language={language} />} />
             <Route path="*" element={<Home language={language} />} />
           </Routes>

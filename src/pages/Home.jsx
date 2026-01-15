@@ -1,48 +1,86 @@
 // pages/Home.jsx
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Shield, TrendingUp, Users, Award } from 'lucide-react';
+import { ArrowRight, Shield, TrendingUp, Users, Award, ArrowUpRight, ArrowDownRight } from 'lucide-react';
 import { translations } from '../translations';
 
 export default function Home({ language }) {
   const t = translations[language];
+  const [marketData, setMarketData] = useState({
+    sp500: { value: '5,985.34', change: '+0.42%', up: true },
+    nasdaq: { value: '19,735.12', change: '+0.28%', up: true },
+    bond10y: { value: '4.58%', change: '-0.05%', up: false }
+  });
 
   return (
     <div className="pt-24">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-green-50 to-blue-50 py-20">
+      {/* Market Ticker */}
+      <section className="bg-gray-900 border-b border-gray-700 py-3">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-5xl md:text-6xl font-serif font-bold text-gray-900 mb-6 leading-tight">
-                {t.hero.title}<br />
-                <span className="text-green-700">{t.hero.subtitle}</span>
-              </h1>
-              <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-                {t.hero.description}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link 
-                  to="/contact"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-green-700 text-white rounded hover:bg-green-800 transition-all text-lg font-medium shadow-lg"
-                >
-                  {t.hero.cta}
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
-                <Link 
-                  to="/overview"
-                  className="inline-flex items-center justify-center px-8 py-4 border-2 border-gray-300 text-gray-700 rounded hover:border-green-700 hover:text-green-700 transition-all text-lg font-medium"
-                >
-                  {t.hero.learn}
-                </Link>
+          <div className="flex items-center justify-between overflow-x-auto">
+            <div className="flex items-center gap-8">
+              <div className="flex items-center gap-2">
+                <span className="text-gray-400 text-sm font-medium">S&P 500</span>
+                <span className="text-white font-semibold">{marketData.sp500.value}</span>
+                <span className={`text-sm flex items-center gap-1 ${marketData.sp500.up ? 'text-green-500' : 'text-red-500'}`}>
+                  {marketData.sp500.up ? <ArrowUpRight className="w-3 h-3" /> : <ArrowDownRight className="w-3 h-3" />}
+                  {marketData.sp500.change}
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-gray-400 text-sm font-medium">NASDAQ</span>
+                <span className="text-white font-semibold">{marketData.nasdaq.value}</span>
+                <span className={`text-sm flex items-center gap-1 ${marketData.nasdaq.up ? 'text-green-500' : 'text-red-500'}`}>
+                  {marketData.nasdaq.up ? <ArrowUpRight className="w-3 h-3" /> : <ArrowDownRight className="w-3 h-3" />}
+                  {marketData.nasdaq.change}
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-gray-400 text-sm font-medium">10Y Bond</span>
+                <span className="text-white font-semibold">{marketData.bond10y.value}</span>
+                <span className={`text-sm flex items-center gap-1 ${marketData.bond10y.up ? 'text-green-500' : 'text-red-500'}`}>
+                  {marketData.bond10y.up ? <ArrowUpRight className="w-3 h-3" /> : <ArrowDownRight className="w-3 h-3" />}
+                  {marketData.bond10y.change}
+                </span>
               </div>
             </div>
-            <div className="relative">
-              <img 
-                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070" 
-                alt="New York City"
-                className="rounded-lg shadow-2xl"
-              />
+            <Link to="/market-insights" className="text-green-600 hover:text-green-700 text-sm font-medium whitespace-nowrap ml-4">
+              {language === 'en' ? 'View Market Insights →' : '查看市场洞察 →'}
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Hero Section */}
+      <section 
+        className="relative bg-cover bg-center py-32"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1518391846015-55a9cc003b25?q=80&w=2070')`,
+        }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-6 leading-tight">
+              {t.hero.title}<br />
+              <span className="text-green-400">{t.hero.subtitle}</span>
+            </h1>
+            <p className="text-xl text-gray-200 mb-8 leading-relaxed">
+              {t.hero.description}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link 
+                to="/contact"
+                className="inline-flex items-center justify-center px-8 py-4 bg-green-600 text-white rounded hover:bg-green-700 transition-all text-lg font-medium shadow-lg"
+              >
+                {t.hero.cta}
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Link>
+              <Link 
+                to="/overview"
+                className="inline-flex items-center justify-center px-8 py-4 bg-white text-gray-900 rounded hover:bg-gray-100 transition-all text-lg font-medium"
+              >
+                {t.hero.learn}
+              </Link>
             </div>
           </div>
         </div>
@@ -83,7 +121,7 @@ export default function Home({ language }) {
               { icon: Users, title: t.services.estate.title, desc: language === 'en' ? 'Multi-generational wealth transfer' : '多代财富传承' },
               { icon: Award, title: t.services.financial.title, desc: language === 'en' ? 'Cross-border transaction expertise' : '跨境交易专业知识' }
             ].map((service, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-lg shadow-sm border border-gray-200 hover:shadow-md hover:border-green-700 transition-all">
+              <div key={idx} className="bg-white p-8 rounded-lg shadow-sm border border-gray-200 hover:shadow-md hover:border-green-600 transition-all">
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
                   <service.icon className="w-6 h-6 text-green-700" />
                 </div>
@@ -104,8 +142,13 @@ export default function Home({ language }) {
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-20 bg-white">
+      {/* Why Choose Us with Real Image */}
+      <section 
+        className="relative py-20 bg-cover bg-center"
+        style={{
+          backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070')`,
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -166,17 +209,17 @@ export default function Home({ language }) {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-green-700 to-green-800 text-white">
+      <section className="py-20 bg-gray-900 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-serif font-bold mb-6">
             {language === 'en' ? 'Ready to Secure Your Financial Future?' : '准备好保障您的财务未来了吗？'}
           </h2>
-          <p className="text-xl mb-8 text-green-50">
+          <p className="text-xl mb-8 text-gray-300">
             {language === 'en' ? 'Schedule a confidential consultation with our expert advisors' : '与我们的专家顾问预约保密咨询'}
           </p>
           <Link 
             to="/contact"
-            className="inline-flex items-center px-8 py-4 bg-white text-green-700 rounded hover:bg-gray-100 transition-all text-lg font-medium shadow-lg"
+            className="inline-flex items-center px-8 py-4 bg-green-600 text-white rounded hover:bg-green-700 transition-all text-lg font-medium shadow-lg"
           >
             {language === 'en' ? 'Contact Us Today' : '立即联系我们'}
             <ArrowRight className="ml-2 w-5 h-5" />

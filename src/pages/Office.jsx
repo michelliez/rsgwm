@@ -1,162 +1,145 @@
 // pages/Office.jsx
 import React from 'react';
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Building } from 'lucide-react';
 import { translations } from '../translations';
 
 export default function Office({ language }) {
   const t = translations[language];
 
+  const offices = [
+    {
+      name: t.contact.ny1,
+      address: t.contact.ny1address,
+      city: t.contact.ny1city,
+      phone: t.contact.nyphone,
+      image: 'https://images.unsplash.com/photo-1496568816309-51d7c20e3b21?q=80&w=2031'
+    },
+    {
+      name: t.contact.ny2,
+      address: t.contact.ny2address,
+      city: t.contact.ny2city,
+      phone: t.contact.nyphone,
+      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070'
+    },
+    {
+      name: t.contact.nj,
+      address: t.contact.njaddress,
+      city: t.contact.njcity,
+      phone: t.contact.njphone,
+      image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=2035'
+    }
+  ];
+
   return (
     <div className="pt-24">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-green-50 to-blue-50 py-20 border-b border-gray-200">
+      <section 
+        className="relative bg-cover bg-center py-20 border-b border-gray-200"
+        style={{
+          backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=2072')`,
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl font-serif font-bold text-gray-900 mb-6">{t.contact.office}</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             {language === 'en' ?
-              'Located in the heart of Midtown Manhattan' :
-              '位于曼哈顿中城中心'
+              'Conveniently located in New York and New Jersey' :
+              '便利地位于纽约和新泽西'
             }
           </p>
         </div>
       </section>
 
-      {/* Office Info */}
+      {/* Office Cards */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 mb-16">
-            {/* Contact Details */}
-            <div>
-              <h2 className="text-3xl font-serif font-bold text-gray-900 mb-8">
-                {language === 'en' ? 'Get In Touch' : '联系我们'}
-              </h2>
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4 p-6 bg-green-50 rounded-lg border border-green-200">
-                  <MapPin className="w-6 h-6 text-green-700 mt-1" />
-                  <div>
-                    <div className="font-semibold text-gray-900 mb-1">
-                      {language === 'en' ? 'Address' : '地址'}
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            {offices.map((office, idx) => (
+              <div key={idx} className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all">
+                <div 
+                  className="h-48 bg-cover bg-center"
+                  style={{ backgroundImage: `url('${office.image}')` }}
+                ></div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">{office.name}</h3>
+                  <div className="space-y-3">
+                    <div className="flex items-start space-x-3">
+                      <MapPin className="w-5 h-5 text-green-700 mt-0.5 flex-shrink-0" />
+                      <div className="text-gray-600 text-sm">
+                        <p>{office.address}</p>
+                        <p>{office.city}</p>
+                      </div>
                     </div>
-                    <div className="text-gray-600">{t.contact.address}</div>
-                    <div className="text-gray-600">{t.contact.city}</div>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-4 p-6 bg-gray-50 rounded-lg border border-gray-200">
-                  <Phone className="w-6 h-6 text-green-700" />
-                  <div>
-                    <div className="font-semibold text-gray-900 mb-1">
-                      {language === 'en' ? 'Phone' : '电话'}
-                    </div>
-                    <div className="text-gray-600">+1 (212) 555-0100</div>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-4 p-6 bg-gray-50 rounded-lg border border-gray-200">
-                  <Mail className="w-6 h-6 text-green-700" />
-                  <div>
-                    <div className="font-semibold text-gray-900 mb-1">
-                      {language === 'en' ? 'Email' : '电子邮件'}
-                    </div>
-                    <div className="text-gray-600">info@rockystreamglobal.com</div>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-4 p-6 bg-gray-50 rounded-lg border border-gray-200">
-                  <Clock className="w-6 h-6 text-green-700 mt-1" />
-                  <div>
-                    <div className="font-semibold text-gray-900 mb-1">
-                      {language === 'en' ? 'Office Hours' : '办公时间'}
-                    </div>
-                    <div className="text-gray-600">
-                      {language === 'en' ? 'Monday - Friday: 9:00 AM - 6:00 PM EST' : '周一至周五：上午9:00 - 下午6:00 EST'}
-                    </div>
-                    <div className="text-gray-600">
-                      {language === 'en' ? 'Saturday: By Appointment Only' : '周六：仅限预约'}
-                    </div>
-                    <div className="text-gray-600">
-                      {language === 'en' ? 'Sunday: Closed' : '周日：关闭'}
+                    <div className="flex items-center space-x-3">
+                      <Phone className="w-5 h-5 text-green-700 flex-shrink-0" />
+                      <p className="text-gray-600 text-sm">{office.phone}</p>
                     </div>
                   </div>
+                  <a 
+                    href={`https://maps.google.com/?q=${encodeURIComponent(office.address + ' ' + office.city)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-block w-full text-center px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition-all text-sm font-medium"
+                  >
+                    {language === 'en' ? 'Get Directions' : '获取路线'}
+                  </a>
                 </div>
               </div>
-            </div>
-
-            {/* Map */}
-            <div className="h-full min-h-96 bg-gray-100 rounded-lg overflow-hidden border border-gray-200 relative">
-              <img 
-                src="https://images.unsplash.com/photo-1569025690938-a00729c9e1f9?q=80&w=2070" 
-                alt="Manhattan Map"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 flex items-center justify-center bg-black/20">
-                <a 
-                  href="https://maps.google.com/?q=Lexington+Avenue+E+46th+Street+New+York"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-6 py-3 bg-green-700 text-white rounded hover:bg-green-800 transition-all font-medium shadow-lg"
-                >
-                  {language === 'en' ? 'Get Directions' : '获取路线'}
-                </a>
-              </div>
-            </div>
+            ))}
           </div>
-        </div>
-      </section>
 
-      {/* Transportation */}
-      <section className="py-16 bg-gray-50 border-y border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-serif font-bold text-gray-900 mb-4">
-              {language === 'en' ? 'Location & Transportation' : '位置和交通'}
+          {/* Headquarters Contact Info */}
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-8">
+            <h2 className="text-2xl font-serif font-bold text-gray-900 mb-6 text-center">
+              {language === 'en' ? 'Headquarters Contact Information' : '总部联系信息'}
             </h2>
-            <p className="text-gray-600 max-w-3xl mx-auto">
-              {language === 'en' ?
-                'Our office is conveniently located in Midtown Manhattan at the intersection of Lexington Avenue and E 46th Street' :
-                '我们的办公室便利地位于曼哈顿中城列克星敦大道和东46街的交汇处'
-              }
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { 
-                title: language === 'en' ? 'Subway Access' : '地铁通道', 
-                desc: language === 'en' ? '4, 5, 6, 7, S lines at Grand Central' : 'Grand Central的4、5、6、7、S线'
-              },
-              { 
-                title: language === 'en' ? 'Parking' : '停车', 
-                desc: language === 'en' ? 'Multiple garages nearby' : '附近有多个停车场'
-              },
-              { 
-                title: language === 'en' ? 'Validation' : '验证', 
-                desc: language === 'en' ? 'Available for client meetings' : '客户会议可用'
-              }
-            ].map((item, idx) => (
-              <div key={idx} className="bg-white p-6 rounded-lg border border-gray-200 hover:border-green-700 transition-all text-center">
-                <div className="font-semibold text-gray-900 mb-2">{item.title}</div>
-                <div className="text-sm text-gray-600">{item.desc}</div>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <Phone className="w-8 h-8 text-green-700 mx-auto mb-3" />
+                <h3 className="font-semibold text-gray-900 mb-2">
+                  {language === 'en' ? 'Phone Numbers' : '电话号码'}
+                </h3>
+                <p className="text-gray-600 text-sm">NY: {t.contact.nyphone}</p>
+                <p className="text-gray-600 text-sm">NJ: {t.contact.njphone}</p>
               </div>
-            ))}
+              <div className="text-center">
+                <Mail className="w-8 h-8 text-green-700 mx-auto mb-3" />
+                <h3 className="font-semibold text-gray-900 mb-2">
+                  {language === 'en' ? 'Email' : '电子邮件'}
+                </h3>
+                <p className="text-gray-600 text-sm">{t.contact.emailaddr}</p>
+              </div>
+              <div className="text-center">
+                <Building className="w-8 h-8 text-green-700 mx-auto mb-3" />
+                <h3 className="font-semibold text-gray-900 mb-2">
+                  {language === 'en' ? 'Website' : '网站'}
+                </h3>
+                <p className="text-gray-600 text-sm">{t.contact.website}</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Nearby Landmarks */}
-      <section className="py-20 bg-white">
+      {/* Office Hours */}
+      <section className="py-16 bg-gray-50 border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-serif font-bold text-gray-900 mb-8 text-center">
-            {language === 'en' ? 'Nearby Landmarks' : '附近地标'}
-          </h2>
-          <div className="grid md:grid-cols-4 gap-6">
-            {[
-              { name: language === 'en' ? 'Grand Central Terminal' : '中央车站', distance: language === 'en' ? '2 blocks' : '2个街区' },
-              { name: language === 'en' ? 'Chrysler Building' : '克莱斯勒大厦', distance: language === 'en' ? '3 blocks' : '3个街区' },
-              { name: language === 'en' ? 'United Nations HQ' : '联合国总部', distance: language === 'en' ? '5 blocks' : '5个街区' },
-              { name: language === 'en' ? 'Bryant Park' : '布莱恩特公园', distance: language === 'en' ? '6 blocks' : '6个街区' }
-            ].map((landmark, idx) => (
-              <div key={idx} className="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:border-green-700 transition-all text-center">
-                <div className="font-semibold text-gray-900 mb-2">{landmark.name}</div>
-                <div className="text-sm text-gray-600">{landmark.distance}</div>
-              </div>
-            ))}
+          <div className="max-w-2xl mx-auto text-center">
+            <Clock className="w-12 h-12 text-green-700 mx-auto mb-4" />
+            <h2 className="text-2xl font-serif font-bold text-gray-900 mb-4">
+              {language === 'en' ? 'Office Hours' : '办公时间'}
+            </h2>
+            <div className="space-y-2 text-gray-700">
+              <p className="text-lg">
+                {language === 'en' ? 'Monday - Friday: 9:00 AM - 6:00 PM EST' : '周一至周五：上午9:00 - 下午6:00 EST'}
+              </p>
+              <p className="text-lg">
+                {language === 'en' ? 'Saturday: By Appointment Only' : '周六：仅限预约'}
+              </p>
+              <p className="text-lg">
+                {language === 'en' ? 'Sunday: Closed' : '周日：关闭'}
+              </p>
+            </div>
           </div>
         </div>
       </section>

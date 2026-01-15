@@ -49,7 +49,12 @@ export default function Services({ language }) {
   return (
     <div className="pt-24">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-green-50 to-blue-50 py-20 border-b border-gray-200">
+      <section 
+        className="relative bg-cover bg-center py-20 border-b border-gray-200"
+        style={{
+          backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), url('https://images.unsplash.com/photo-1551836022-4c4c79ecde51?q=80&w=2070')`,
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl font-serif font-bold text-gray-900 mb-6">{t.services.title}</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">

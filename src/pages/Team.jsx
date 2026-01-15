@@ -18,7 +18,12 @@ export default function Team({ language }) {
   return (
     <div className="pt-24">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-green-50 to-blue-50 py-20 border-b border-gray-200">
+      <section 
+        className="relative bg-cover bg-center py-20 border-b border-gray-200"
+        style={{
+          backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=2071')`,
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl font-serif font-bold text-gray-900 mb-6">{t.team.title}</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -46,6 +51,9 @@ export default function Team({ language }) {
                   <p className="text-green-700 font-medium mb-4 text-sm">{member.title}</p>
                   <p className="text-gray-600 text-sm leading-relaxed mb-4">{member.bio}</p>
                   <div className="flex gap-3">
+                    <button className="p-2 border border-gray-300 rounded hover:border-green-700 hover:bg-green-50 transition-all">
+                      <img src="https://cdn.cdnlogo.com/logos/w/79/wechat.svg" alt="WeChat" className="w-4 h-4" />
+                    </button>
                     <button className="p-2 border border-gray-300 rounded hover:border-green-700 hover:bg-green-50 transition-all">
                       <Linkedin className="w-4 h-4 text-gray-600" />
                     </button>

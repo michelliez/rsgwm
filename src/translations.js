@@ -3,13 +3,14 @@ export const translations = {
   en: {
     nav: {
       home: 'Home',
-      overview: 'Company Overview',
-      asset: 'Asset Management',
-      team: 'Management Team',
-      office: 'NY Office',
+      overview: 'Overview',
+      asset: 'Asset Mgmt',
+      team: 'Team',
+      office: 'Offices',
       about: 'About Us',
       services: 'Services',
-      contact: 'Contact'
+      contact: 'Contact',
+      market: 'Markets'
     },
     hero: {
       title: 'Building Wealth,',
@@ -126,9 +127,20 @@ export const translations = {
       message: 'Message',
       submit: 'Send Message',
       success: 'Thank you! We will contact you within 24 hours.',
-      office: 'New York Office',
-      address: 'Lexington Ave & E 46th St',
-      city: 'New York, NY 10017'
+      office: 'Office Locations',
+      ny1: 'New York Office (Manhattan)',
+      ny1address: '405 Lexington Ave, 26th Floor',
+      ny1city: 'Manhattan, NY 10174',
+      ny2: 'New York Office (Irvington)',
+      ny2address: '8 East Clinton Ave',
+      ny2city: 'Irvington, NY 10533',
+      nj: 'New Jersey Office',
+      njaddress: '101 Hudson Street, 21st Floor',
+      njcity: 'Jersey City, NJ 07310',
+      nyphone: '1 (914) 231-9071',
+      njphone: '1 (201) 920-1887',
+      emailaddr: 'advisors@rsgwm.com',
+      website: 'www.rsgwm.com'
     },
     footer: {
       tagline: 'Your trusted partner in global wealth management',
@@ -139,13 +151,14 @@ export const translations = {
   zh: {
     nav: {
       home: '首页',
-      overview: '公司概况',
+      overview: '概况',
       asset: '资产管理',
-      team: '管理团队',
-      office: '纽约办公室',
-      about: '关于我们',
-      services: '服务项目',
-      contact: '联系我们'
+      team: '团队',
+      office: '办公室',
+      about: '关于',
+      services: '服务',
+      contact: '联系',
+      market: '市场'
     },
     hero: {
       title: '创造财富，',
@@ -262,9 +275,20 @@ export const translations = {
       message: '留言',
       submit: '发送信息',
       success: '感谢您！我们将在24小时内与您联系。',
-      office: '纽约办公室',
-      address: '列克星敦大道与东46街交汇处',
-      city: '纽约州纽约市 10017'
+      office: '办公地点',
+      ny1: '纽约办公室（曼哈顿）',
+      ny1address: '列克星敦大道405号26楼',
+      ny1city: '纽约州曼哈顿 10174',
+      ny2: '纽约办公室（欧文顿）',
+      ny2address: '东克林顿大道8号',
+      ny2city: '纽约州欧文顿 10533',
+      nj: '新泽西办公室',
+      njaddress: '哈德逊街101号21楼',
+      njcity: '新泽西州泽西市 07310',
+      nyphone: '1 (914) 231-9071',
+      njphone: '1 (201) 920-1887',
+      emailaddr: 'advisors@rsgwm.com',
+      website: 'www.rsgwm.com'
     },
     footer: {
       tagline: '您值得信赖的全球财富管理伙伴',
