@@ -60,13 +60,13 @@ export const translations = {
     },
     commitments: {
       title: 'Our Commitments',
-      subtitle: 'We believe that financial goals can be accomplished with proper strategies and prudent asset allocations. Successful wealth management is the result of an ongoing collaboration and mutual trust between the investor and the advisor with highest standards of integrity and expertise.',
+      subtitle: 'We believe that financial goals can be accomplished with proper strategies and prudent asset allocations. Successful wealth management is the result of an ongoing collaboration and mutual trust between the investor and the advisor with highest standards of integrity and expertise. In pursuit of our mission, RSG Global Wealth and RSA Capital strives to:',
       items: [
-        'Pursue and execute the highest ethical standards and requirements',
-        'Maintain absolute priority of each client\'s long-term investment objectives',
-        'Provide comprehensive asset management plans with confidential, impartial, high-quality consulting',
-        'Customize financial plans and investment allocations to meet each client\'s unique needs',
-        'Continuously improve advisor expertise to meet the highest professional certification requirements'
+        'Conduct business with unparalleled integrity and exceptionally high ethical standards',
+        'Maintain clients\' long term goals and objectives as the absolute priority',
+        'Provide clients with comprehensive plans based on confidential, unbiased, and high quality advice',
+        'Continuously meet the highest levels of professional accreditation and licensing requirements',
+        'Customize financial plans and investment allocations to meet each client\'s unique needs'
       ]
     },
     strategies: {
@@ -196,13 +196,13 @@ export const translations = {
     },
     commitments: {
       title: '我们的承诺',
-      subtitle: '我们相信，通过适当的策略和审慎的资产配置可以实现财务目标。成功的财富管理是投资者与顾问之间持续合作和相互信任的结果，并秉持最高标准的诚信和专业知识。',
+      subtitle: '我们相信，通过适当的策略和审慎的资产配置可以实现财务目标。成功的财富管理是投资者与顾问之间持续合作和相互信任的结果，并秉持最高标准的诚信和专业知识。为了实现这一使命，RSG全球财富和RSA Capital致力于：',
       items: [
-        '追求并执行最高的职业道德规范和标准',
-        '维护每个客户长期投资目标的绝对优先',
-        '提供全面的资产管理计划，并提供保密、公正、高质量的咨询',
-        '定制财务计划和投资配置以满足每个客户的独特需求',
-        '不断提高顾问专业能力，达到职业资格认证所要求的最高水平'
+        '以无与伦比的诚信和极高的道德标准开展业务',
+        '将客户的长期目标和目的作为绝对优先事项',
+        '基于保密、公正和高质量的建议为客户提供全面的计划',
+        '持续满足最高水平的专业认证和许可要求',
+        '定制财务计划和投资配置以满足每个客户的独特需求'
       ]
     },
     strategies: {
