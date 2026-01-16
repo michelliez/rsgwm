@@ -1,6 +1,6 @@
 // pages/MarketInsights.jsx
 import React, { useState, useEffect } from 'react';
-import { TrendingUp, TrendingDown, ArrowUpRight, ArrowDownRight, RefreshCw } from 'lucide-react';
+import { TrendingUp, TrendingDown, ArrowUpRight, ArrowDownRight, RefreshCw, ExternalLink } from 'lucide-react';
 
 export default function MarketInsights({ language }) {
   const [marketData, setMarketData] = useState({
@@ -24,30 +24,43 @@ export default function MarketInsights({ language }) {
     }, 1000);
   };
 
+  // Auto-refresh every 60 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setLastUpdated(new Date());
+    }, 60000); // 60 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   const newsItems = [
     {
       title: language === 'en' ? 'Fed Signals Potential Rate Cuts in 2024' : '美联储暗示2024年可能降息',
       source: 'Bloomberg',
       time: '2 hours ago',
-      summary: language === 'en' ? 'Federal Reserve officials hint at possible interest rate reductions amid cooling inflation data.' : '美联储官员暗示随着通胀数据降温可能降低利率。'
+      summary: language === 'en' ? 'Federal Reserve officials hint at possible interest rate reductions amid cooling inflation data.' : '美联储官员暗示随着通胀数据降温可能降低利率。',
+      url: 'https://www.bloomberg.com/markets'
     },
     {
       title: language === 'en' ? 'Tech Stocks Rally on AI Optimism' : '科技股因人工智能乐观情绪上涨',
       source: 'CNBC',
       time: '4 hours ago',
-      summary: language === 'en' ? 'Major technology companies see gains as artificial intelligence investments continue to drive growth.' : '随着人工智能投资继续推动增长，主要科技公司股价上涨。'
+      summary: language === 'en' ? 'Major technology companies see gains as artificial intelligence investments continue to drive growth.' : '随着人工智能投资继续推动增长，主要科技公司股价上涨。',
+      url: 'https://www.cnbc.com/technology/'
     },
     {
       title: language === 'en' ? 'China Economic Data Beats Expectations' : '中国经济数据超预期',
       source: 'Reuters',
       time: '6 hours ago',
-      summary: language === 'en' ? 'Latest GDP figures from China show stronger than expected economic recovery in Q4.' : '中国最新GDP数据显示第四季度经济复苏强于预期。'
+      summary: language === 'en' ? 'Latest GDP figures from China show stronger than expected economic recovery in Q4.' : '中国最新GDP数据显示第四季度经济复苏强于预期。',
+      url: 'https://www.reuters.com/markets/'
     },
     {
       title: language === 'en' ? 'Gold Reaches New Highs Amid Uncertainty' : '黄金在不确定性中创新高',
       source: 'Financial Times',
       time: '8 hours ago',
-      summary: language === 'en' ? 'Precious metals surge as investors seek safe-haven assets during market volatility.' : '随着投资者在市场波动期间寻求避险资产，贵金属飙升。'
+      summary: language === 'en' ? 'Precious metals surge as investors seek safe-haven assets during market volatility.' : '随着投资者在市场波动期间寻求避险资产，贵金属飙升。',
+      url: 'https://www.ft.com/markets'
     }
   ];
 
@@ -126,16 +139,27 @@ export default function MarketInsights({ language }) {
           </h2>
           <div className="space-y-4">
             {newsItems.map((news, idx) => (
-              <div key={idx} className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-all">
+              <a
+                key={idx}
+                href={news.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md hover:border-green-700 transition-all group"
+              >
                 <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-xl font-semibold text-gray-900 flex-1 pr-4">{news.title}</h3>
-                  <span className="text-sm text-gray-500 whitespace-nowrap">{news.time}</span>
+                  <h3 className="text-xl font-semibold text-gray-900 flex-1 pr-4 group-hover:text-green-700 transition-colors">
+                    {news.title}
+                  </h3>
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm text-gray-500 whitespace-nowrap">{news.time}</span>
+                    <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-green-700 transition-colors" />
+                  </div>
                 </div>
                 <p className="text-gray-600 mb-3">{news.summary}</p>
                 <div className="flex items-center gap-2">
                   <span className="text-sm font-medium text-green-700">{news.source}</span>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>

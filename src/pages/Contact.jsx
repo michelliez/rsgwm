@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Send, CheckCircle, MapPin, Phone, Mail } from 'lucide-react';
 import { translations } from '../translations';
+import wechatQR from '../assets/wechat-qr.jpeg';
 
 export default function Contact({ language }) {
   const t = translations[language];
@@ -135,7 +136,7 @@ export default function Contact({ language }) {
                     </div>
                     <div className="flex items-center gap-2 text-gray-600">
                       <Phone className="w-4 h-4 text-green-700 flex-shrink-0" />
-                      <p className="text-sm">{t.contact.nyphone}</p>
+                      <p className="text-sm">{t.contact.njphone}</p>
                     </div>
                   </div>
                 </div>
@@ -153,7 +154,7 @@ export default function Contact({ language }) {
                     </div>
                     <div className="flex items-center gap-2 text-gray-600">
                       <Phone className="w-4 h-4 text-green-700 flex-shrink-0" />
-                      <p className="text-sm">{t.contact.nyphone}</p>
+                      <p className="text-sm">{t.contact.njphone}</p>
                     </div>
                   </div>
                 </div>
@@ -203,6 +204,7 @@ export default function Contact({ language }) {
         </div>
       </section>
 
+
       {/* WeChat Contact Section */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -217,11 +219,12 @@ export default function Contact({ language }) {
             </div>
             <div className="flex flex-col md:flex-row items-center justify-center gap-8">
               <div className="text-center">
-                <div className="w-48 h-48 bg-gray-50 rounded-lg shadow-sm flex items-center justify-center mb-3 border border-gray-200">
-                  <div className="text-center">
-                    <img src="https://cdn.cdnlogo.com/logos/w/79/wechat.svg" alt="WeChat" className="w-16 h-16 mx-auto mb-2" />
-                    <p className="text-xs text-gray-500">{language === 'en' ? 'QR Code Here' : '二维码'}</p>
-                  </div>
+                <div className="w-48 h-48 bg-white rounded-lg shadow-sm flex items-center justify-center mb-3 border border-gray-200 p-2">
+                  <img 
+                    src={wechatQR} 
+                    alt="WeChat QR Code" 
+                    className="w-full h-full object-contain"
+                  />
                 </div>
                 <p className="text-sm font-semibold text-gray-900">
                   {language === 'en' ? 'Official Account' : '官方账号'}

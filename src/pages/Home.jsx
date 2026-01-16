@@ -92,7 +92,7 @@ export default function Home({ language }) {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
               { value: '10+', label: t.stats.aum },
-              { value: '500+', label: t.stats.clients },
+              { value: '300+', label: t.stats.clients },
               { value: '40+', label: t.stats.experience },
               { value: '6', label: t.stats.advisors }
             ].map((stat, idx) => (

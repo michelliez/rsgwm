@@ -11,14 +11,14 @@ export default function Office({ language }) {
       name: t.contact.ny1,
       address: t.contact.ny1address,
       city: t.contact.ny1city,
-      phone: t.contact.nyphone,
+      phone: t.contact.njphone,
       image: 'https://images.unsplash.com/photo-1496568816309-51d7c20e3b21?q=80&w=2031'
     },
     {
       name: t.contact.ny2,
       address: t.contact.ny2address,
       city: t.contact.ny2city,
-      phone: t.contact.nyphone,
+      phone: t.contact.njphone,
       image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070'
     },
     {
@@ -97,10 +97,9 @@ export default function Office({ language }) {
               <div className="text-center">
                 <Phone className="w-8 h-8 text-green-700 mx-auto mb-3" />
                 <h3 className="font-semibold text-gray-900 mb-2">
-                  {language === 'en' ? 'Phone Numbers' : '电话号码'}
+                  {language === 'en' ? 'Phone Number' : '电话号码'}
                 </h3>
-                <p className="text-gray-600 text-sm">NY: {t.contact.nyphone}</p>
-                <p className="text-gray-600 text-sm">NJ: {t.contact.njphone}</p>
+                <p className="text-gray-600 text-sm">{t.contact.njphone}</p>
               </div>
               <div className="text-center">
                 <Mail className="w-8 h-8 text-green-700 mx-auto mb-3" />
@@ -116,29 +115,6 @@ export default function Office({ language }) {
                 </h3>
                 <p className="text-gray-600 text-sm">{t.contact.website}</p>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Office Hours */}
-      <section className="py-16 bg-gray-50 border-t border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mx-auto text-center">
-            <Clock className="w-12 h-12 text-green-700 mx-auto mb-4" />
-            <h2 className="text-2xl font-serif font-bold text-gray-900 mb-4">
-              {language === 'en' ? 'Office Hours' : '办公时间'}
-            </h2>
-            <div className="space-y-2 text-gray-700">
-              <p className="text-lg">
-                {language === 'en' ? 'Monday - Friday: 9:00 AM - 6:00 PM EST' : '周一至周五：上午9:00 - 下午6:00 EST'}
-              </p>
-              <p className="text-lg">
-                {language === 'en' ? 'Saturday: By Appointment Only' : '周六：仅限预约'}
-              </p>
-              <p className="text-lg">
-                {language === 'en' ? 'Sunday: Closed' : '周日：关闭'}
-              </p>
             </div>
           </div>
         </div>

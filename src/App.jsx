@@ -154,10 +154,7 @@ function Footer({ language }) {
           <div>
             <h4 className="font-semibold mb-4 text-gray-900">{t.nav.contact}</h4>
             <div className="space-y-2 text-sm">
-              <div>
-                <p className="text-gray-600">NY: {t.contact.nyphone}</p>
-                <p className="text-gray-600">NJ: {t.contact.njphone}</p>
-              </div>
+              <p className="text-gray-600">{t.contact.njphone}</p>
               <p className="text-gray-600">{t.contact.emailaddr}</p>
               <p className="text-gray-600">{t.contact.website}</p>
             </div>

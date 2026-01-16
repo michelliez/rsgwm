@@ -86,43 +86,23 @@ export default function Team({ language }) {
         </div>
       </section>
 
-      {/* Team Stats */}
+{/* Team Stats */}
       <section className="py-16 bg-gray-50 border-y border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[
-              { value: '40+', label: language === 'en' ? 'Years Max Experience' : '最多年限经验' },
-              { value: '$2B+', label: language === 'en' ? 'Assets Managed' : '管理资产' },
-              { value: '6', label: language === 'en' ? 'Senior Advisors' : '资深顾问' },
-              { value: language === 'en' ? 'Global' : '全球', label: language === 'en' ? 'Network Reach' : '网络覆盖' }
-            ].map((stat, idx) => (
-              <div key={idx}>
-                <div className="text-4xl font-bold text-green-700 mb-2">{stat.value}</div>
-                <div className="text-sm text-gray-600">{stat.label}</div>
-              </div>
-            ))}
+          <div className="flex justify-center">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-16 text-center">
+              {[
+                { value: '40+', label: language === 'en' ? 'Years Max Experience' : '最多年限经验' },
+                { value: '6', label: language === 'en' ? 'Senior Advisors' : '资深顾问' },
+                { value: language === 'en' ? 'Global' : '全球', label: language === 'en' ? 'Network Reach' : '网络覆盖' }
+              ].map((stat, idx) => (
+                <div key={idx}>
+                  <div className="text-4xl font-bold text-green-700 mb-2">{stat.value}</div>
+                  <div className="text-sm text-gray-600">{stat.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-serif font-bold text-gray-900 mb-6">
-            {language === 'en' ? 'Join Our Team' : '加入我们的团队'}
-          </h2>
-          <p className="text-xl text-gray-600 mb-8">
-            {language === 'en' ?
-              'We\'re always looking for talented professionals who share our commitment to excellence' :
-              '我们一直在寻找与我们致力于卓越的才华横溢的专业人士'
-            }
-          </p>
-          <a 
-            href="/contact"
-            className="inline-block px-8 py-4 bg-green-700 text-white rounded hover:bg-green-800 transition-all font-medium shadow-lg"
-          >
-            {language === 'en' ? 'Careers at RockyStream' : 'RockyStream职业机会'}
-          </a>
         </div>
       </section>
     </div>
