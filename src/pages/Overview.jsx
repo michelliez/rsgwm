@@ -177,7 +177,7 @@ export default function Overview({ language }) {
       </section>
 
       {/* Core Values */}
-      <section className="py-20 bg-gradient-to-r from-green-700 to-green-800 text-white">
+      <section className="py-20 bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-serif font-bold mb-4">
@@ -207,7 +207,7 @@ export default function Overview({ language }) {
                   <value.icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold mb-3">{value.title}</h3>
-                <p className="text-green-50">{value.desc}</p>
+                <p className="text-gray-300">{value.desc}</p>
               </div>
             ))}
           </div>

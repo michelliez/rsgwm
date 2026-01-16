@@ -176,18 +176,18 @@ export default function AssetManagement({ language }) {
       </section>
 
       {/* Stats */}
-      <section className="py-20 bg-gradient-to-r from-green-700 to-green-800 text-white">
+      <section className="py-20 bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
               { value: '2009', label: language === 'en' ? 'Strategy Development' : '策略开发' },
-              { value: '8+', label: language === 'en' ? 'Asset Allocations' : '资产配置' },
+              { value: '8+', label: language === 'en' ? 'Asset Management Strategies' : '内部投资策略' },
               { value: language === 'en' ? 'Outperform' : '优于', label: language === 'en' ? 'vs S&P 500' : '标普500' },
               { value: language === 'en' ? 'Global' : '全球', label: language === 'en' ? 'Investment Reach' : '投资覆盖' }
             ].map((stat, idx) => (
               <div key={idx}>
                 <div className="text-4xl font-bold mb-2">{stat.value}</div>
-                <div className="text-sm text-green-50">{stat.label}</div>
+                <div className="text-sm text-gray-300">{stat.label}</div>
               </div>
             ))}
           </div>

@@ -53,7 +53,7 @@ function Navigation({ language, setLanguage }) {
           <Link to="/" className="flex items-center space-x-3">
             <div className="flex flex-col">
               <span className="text-2xl font-serif font-bold text-gray-900">RockyStream</span>
-              <span className="text-xs text-gray-600 tracking-wide">GLOBAL WEALTH MANAGEMENT</span>
+              <span className="text-xs text-gray-600 tracking-wide">GLOBAL WEALTH MANAGEMENT & ADVISORS</span>
             </div>
           </Link>
 
@@ -122,7 +122,7 @@ function Footer({ language }) {
           <div className="md:col-span-2">
             <div className="mb-4">
               <span className="text-xl font-serif font-bold text-gray-900">RockyStream</span>
-              <p className="text-xs text-gray-600 mt-1">GLOBAL WEALTH MANAGEMENT</p>
+              <p className="text-xs text-gray-600 mt-1">GLOBAL WEALTH MANAGEMENT & ADVISORS</p>
             </div>
             <p className="text-gray-600 text-sm leading-relaxed mb-4">{t.footer.tagline}</p>
             <div className="flex gap-3">

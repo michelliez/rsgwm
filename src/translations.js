@@ -137,8 +137,8 @@ export const translations = {
       nj: 'New Jersey Office',
       njaddress: '101 Hudson Street, 21st Floor',
       njcity: 'Jersey City, NJ 07310',
-      nyphone: '1 (914) 231-9071',
-      njphone: '1 (201) 920-1887',
+      nyphone: '(646) 714-9576',
+      njphone: '(201) 920-1887',
       emailaddr: 'advisors@rsgwm.com',
       website: 'www.rsgwm.com'
     },
@@ -285,8 +285,8 @@ export const translations = {
       nj: '新泽西办公室',
       njaddress: '哈德逊街101号21楼',
       njcity: '新泽西州泽西市 07310',
-      nyphone: '1 (914) 231-9071',
-      njphone: '1 (201) 920-1887',
+      nyphone: '(646) 714-9576',
+      njphone: '(201) 920-1887',
       emailaddr: 'advisors@rsgwm.com',
       website: 'www.rsgwm.com'
     },
