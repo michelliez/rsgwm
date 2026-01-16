@@ -11,6 +11,7 @@ import Office from './pages/Office';
 import Contact from './pages/Contact';
 import MarketInsights from './pages/MarketInsights';
 import { translations } from './translations';
+import wechatQR from './assets/wechat-qr.jpeg';
 import './App.css';
 
 function Navigation({ language, setLanguage }) {
@@ -115,6 +116,17 @@ function Navigation({ language, setLanguage }) {
 function Footer({ language }) {
   const t = translations[language];
   
+  const handleWeChatClick = (e) => {
+    e.preventDefault();
+    window.location.href = '/contact';
+    setTimeout(() => {
+      const wechatSection = document.querySelector('[data-section="wechat"]');
+      if (wechatSection) {
+        wechatSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
+  
   return (
     <footer className="bg-gray-50 border-t border-gray-200 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -126,14 +138,6 @@ function Footer({ language }) {
             </div>
             <p className="text-gray-600 text-sm leading-relaxed mb-4">{t.footer.tagline}</p>
             <div className="flex gap-3">
-              <a href="#" className="w-10 h-10 bg-white border border-gray-300 rounded-lg flex items-center justify-center hover:border-green-700 hover:bg-green-50 transition-all">
-                <img src="https://cdn.cdnlogo.com/logos/w/79/wechat.svg" alt="WeChat" className="w-6 h-6" />
-              </a>
-              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white border border-gray-300 rounded-lg flex items-center justify-center hover:border-green-700 hover:bg-green-50 transition-all">
-                <svg className="w-5 h-5" fill="#0A66C2" viewBox="0 0 24 24">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-              </a>
             </div>
           </div>
           <div>
@@ -160,8 +164,8 @@ function Footer({ language }) {
             </div>
             <div className="mt-4">
               <p className="text-xs font-semibold text-gray-900 mb-2">{language === 'en' ? 'Connect on WeChat' : '微信联系'}</p>
-              <div className="w-20 h-20 bg-white border-2 border-gray-200 rounded flex items-center justify-center">
-                <img src="https://cdn.cdnlogo.com/logos/w/79/wechat.svg" alt="WeChat QR" className="w-10 h-10" />
+              <div className="w-20 h-20 bg-white border-2 border-gray-200 rounded flex items-center justify-center p-1">
+                <img src={wechatQR} alt="WeChat QR Code" className="w-full h-full object-contain" />
               </div>
             </div>
           </div>
