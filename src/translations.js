@@ -89,23 +89,23 @@ export const translations = {
       title: 'Our Management Team',
       feldman: {
         name: 'Michael E. Feldman',
-        title: 'Partner, Director, Head of M&A Advisory',
+        title: 'Board Advisor, Head of M&A Advisory',
         bio: '40+ years experience in cross-border M&A, investment banking, and SPAC. Former Executive Director at Proskauer Rose LLP. Board member of Northwell Health, Inc. and multiple insurance companies.'
       },
       sandness: {
         name: 'Todd W. Sandness',
-        title: 'Director, Senior Advisor',
+        title: 'Board Advisor',
         bio: 'Renowned entrepreneur and private equity manager. Former Morgan Stanley executive and multi-state manager at Edward D. Jones & Co. 30 years experience managing $2B+ in family assets.'
       },
       zhou: {
         name: 'Dr. Xuelong (Jason) Zhou',
         title: 'Head of Asset Management, Ph.D., CFA',
-        bio: 'Dual Ph.D., CFA. Former Executive Director at Wells Fargo Investment Banking. 22 years experience in global equity investment and risk management. Previously at Citibank and Standard & Poor\'s.'
+        bio: 'Dual Ph.D., CFA. Former Executive Director at Wells Fargo Investment Banking. 27 years experience in global equity investment and risk management. Previously at Citibank and Standard & Poor\'s.'
       },
       zhang: {
         name: 'Sarah Zhang',
         title: 'Partner, Head of Asset Management, RIA',
-        bio: '22 years experience at top global investment banks. Former VP at Merrill Lynch NY and Credit Suisse. Previously at Goldman Sachs. Manages family assets and wealth transfer strategies.'
+        bio: '27 years experience at top global investment banks. Former VP at Merrill Lynch NY and Credit Suisse. Previously at Goldman Sachs. Manages family assets and wealth transfer strategies.'
       },
       wei: {
         name: 'Roger Wei',
@@ -237,7 +237,7 @@ export const translations = {
       title: '管理团队',
       feldman: {
         name: 'Michael E. Feldman',
-        title: '合伙人、董事、并购咨询部负责人',
+        title: '董事、并购咨询部负责人',
         bio: '40+年跨境并购、投资银行和SPAC经验。曾任Proskauer Rose LLP执行董事。Northwell Health等多家公司董事会成员。'
       },
       sandness: {
@@ -248,12 +248,12 @@ export const translations = {
       zhou: {
         name: '周学龙博士 (Jason)',
         title: '资产管理部负责人、理学博士、CFA',
-        bio: '理工双博士，CFA特许金融分析师。曾任富国银行投资银行部执行董事。22年全球权益投资和风险管理经验。曾就职花旗银行和标准普尔。'
+        bio: '理工双博士，CFA特许金融分析师。曾任富国银行投资银行部执行董事。27年全球权益投资和风险管理经验。曾就职花旗银行和标准普尔。'
       },
       zhang: {
         name: 'Sarah Zhang',
         title: '合伙人、资产管理部负责人、注册投资顾问',
-        bio: '22年顶级全球投资银行经验。曾任美林纽约和瑞信副总裁。曾就职高盛。负责家族资产管理和财富传承策略。'
+        bio: '27年顶级全球投资银行经验。曾任美林纽约和瑞信副总裁。曾就职高盛。负责家族资产管理和财富传承策略。'
       },
       wei: {
         name: '魏先生 (Roger Wei)',

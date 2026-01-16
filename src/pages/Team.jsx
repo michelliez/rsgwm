@@ -12,13 +12,37 @@ import liangImg from '../assets/team/jennifer-liang.jpg';
 export default function Team({ language }) {
   const t = translations[language];
 
+  // Calculate years of experience based on start year (1998 = 27 years as of 2025)
+  const currentYear = new Date().getFullYear();
+  const startYear = 1998;
+  const yearsOfExperience = currentYear - startYear;
+
+  // Helper function to update bio text with current years
+  const updateBioWithYears = (bio, hasExperience) => {
+    if (!hasExperience) return bio;
+    // Replace "27 years" or "27年" with current calculated years
+    return bio
+      .replace(/27 years/g, `${yearsOfExperience} years`)
+      .replace(/27年/g, `${yearsOfExperience}年`);
+  };
+
   const members = [
-    { ...t.team.feldman, image: feldmanImg }, 
-    { ...t.team.sandness, image: sandnessImg }, 
-    { ...t.team.zhou, image: zhouImg },
-    { ...t.team.zhang, image: zhangImg },
-    { ...t.team.wei, image: weiImg },
-    { ...t.team.liang, image: liangImg }
+    { ...t.team.feldman, image: feldmanImg, hasExperience: false }, 
+    { ...t.team.sandness, image: sandnessImg, hasExperience: false }, 
+    { 
+      ...t.team.zhou, 
+      image: zhouImg, 
+      hasExperience: true,
+      bio: updateBioWithYears(t.team.zhou.bio, true)
+    },
+    { 
+      ...t.team.zhang, 
+      image: zhangImg, 
+      hasExperience: true,
+      bio: updateBioWithYears(t.team.zhang.bio, true)
+    },
+    { ...t.team.wei, image: weiImg, hasExperience: false },
+    { ...t.team.liang, image: liangImg, hasExperience: false }
   ];
 
   return (
